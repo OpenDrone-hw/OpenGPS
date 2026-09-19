@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>OpenDrone 6-layer board</title>
+  </head>
+  <body>
+    <h1>OpenDrone 6-layer board</h1>
+    <h2>Line-standard board setup</h2>
+
+    <p>
+      Starting point for a new OpenDrone board. It carries no design: what it
+      carries is the setup every board in the line shares, so a new board does
+      not start by guessing at constraints.
+    </p>
+
+    <h3>What it sets</h3>
+    <ul>
+      <li>6 copper layers</li>
+      <li>Clearance 0.09 mm, minimum track width 0.09 mm</li>
+      <li>Via 0.35 mm diameter on a 0.20 mm drill, annular ring 0.075 mm</li>
+      <li>Hole to hole 0.20 mm, copper to board edge 0.20 mm</li>
+      <li>Track width presets 0.15 / 0.25 / 0.40 / 0.80 mm</li>
+      <li>One via size, so a board does not accumulate four of them</li>
+    </ul>
+
+    <p>
+      These are the JLCPCB-buildable numbers the line settled on. A board that
+      needs something tighter or heavier expresses it as a custom rule in its
+      <code>.kicad_dru</code>, not by moving the board minimum. The ESC boards
+      are the worked example: 2 oz outer copper needs 0.16 mm on the outer
+      layers, and that is a layer-scoped rule, so the inner layers keep the
+      standard.
+    </p>
+
+    <h3>Existing boards</h3>
+    <p>
+      This template is for new projects. To bring an existing board onto the
+      same setup, open it and use
+      <b>Board Setup &gt; Import Settings from Another Board</b>, pointed at
+      <code>OpenDrone-6L.kicad_pcb</code>. That imports the layer stackup, the
+      constraints, the track and via presets, the custom rules and the
+      violation severities in one step.
+    </p>
+
+    <h3>Not set here</h3>
+    <p>
+      Net classes. Every board in the line currently has one class,
+      <code>Default</code>, and standardising them is open work rather than
+      something this template should decide.
+    </p>
+
+    <p>
+      Conventions:
+      <a href="https://github.com/OpenDrone-hw/.github/blob/main/CONTRIBUTING.md">OpenDrone-hw/.github</a>
+    </p>
+  </body>
+</html>
